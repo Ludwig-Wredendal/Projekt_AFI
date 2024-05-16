@@ -1,5 +1,6 @@
 import React from 'react';
-import DataDisplay from './DataDisplay';
+import DataDisplay from './components/DataDisplay.js';
+import WeatherDisplay from './components/WeatherDisplay.js';
 import './App.css';
 
 function App() {
