@@ -1,5 +1,7 @@
 // src/DataDisplay.js
 import React, { useEffect, useState } from 'react';
+import WeatherDisplay from './WeatherDisplay';
+
 
 const DataDisplay = () => {
   const [data, setData] = useState(null);
