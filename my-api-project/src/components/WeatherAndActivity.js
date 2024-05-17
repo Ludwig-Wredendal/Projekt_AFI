@@ -1,28 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import WeatherDisplay from './WeatherDisplay';
 import DataDisplay from './DataDisplay';
 
 const WeatherAndActivity = () => {
   const [temperature, setTemperature] = useState(null);
   const [activityType, setActivityType] = useState('recreational');
+  const [fetchActivityTrigger, setFetchActivityTrigger] = useState(false);
 
-  // Determine activity type based on temperature
   const determineActivityType = (temp) => {
-    if (temp < 10) {
-      return 'relaxation';
+    let activities;
+
+    if (temp < 15) {
+        activities = ['busywork', 'education', 'charity'];
     } else if (temp < 20) {
-      return 'recreational';
+        activities = ['cooking', 'diy'];
+    } else if (temp < 25) {
+        activities = ['recreational', 'social'];
     } else {
-      return 'social';
+        activities = ['relaxation', 'music'];
     }
+
+    const activityType = activities[Math.floor(Math.random() * activities.length)];
+    return activityType;
   };
 
-  // Update activity type when temperature changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (temperature !== null) {
-      setActivityType(determineActivityType(temperature));
+        setActivityType(determineActivityType(temperature));
     }
   }, [temperature]);
+
+  const fetchNewActivity = () => {
+    setFetchActivityTrigger(prev => !prev);
+  };
 
   return (
     <div>
@@ -30,7 +40,9 @@ const WeatherAndActivity = () => {
       {temperature !== null && (
         <div>
           <h3>Highest Temperature Today: {temperature}°C</h3>
-          <DataDisplay activityType={activityType} />
+          <h3>Type: {activityType}</h3>
+          <DataDisplay activityType={activityType} fetchActivityTrigger={fetchActivityTrigger} />
+          <button onClick={fetchNewActivity}>New activity</button> {/*Hämtar ny aktivitet från redan bestämt typ*/}
         </div>
       )}
     </div>

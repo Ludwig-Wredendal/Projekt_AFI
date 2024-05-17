@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-const DataDisplay = ({ activityType }) => {
+const DataDisplay = ({ activityType, fetchActivityTrigger }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  const fetchActivity = () => {
+    setLoading(true);
     fetch(`http://www.boredapi.com/api/activity?type=${activityType}`)
       .then(response => {
         if (!response.ok) {
@@ -21,7 +22,11 @@ const DataDisplay = ({ activityType }) => {
         setError(error);
         setLoading(false);
       });
-  }, [activityType]);
+  };
+
+  useEffect(() => {
+    fetchActivity();
+  }, [activityType, fetchActivityTrigger]);
 
   if (loading) {
     return <div>Loading...</div>;

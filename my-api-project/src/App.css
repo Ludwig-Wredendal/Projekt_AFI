@@ -26,7 +26,9 @@
 h1 {
   color: green;
 }
-
+button {
+  margin-bottom: 50px;
+}
 .App-link {
   color: #61dafb;
 }
