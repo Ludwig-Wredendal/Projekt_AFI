@@ -40,7 +40,6 @@ const WeatherAndActivity = () => {
       {temperature !== null && (
         <div>
           <h3>Highest Temperature Today: {temperature}°C</h3>
-          <h3>Type: {activityType}</h3>
           <DataDisplay activityType={activityType} fetchActivityTrigger={fetchActivityTrigger} />
           <button onClick={fetchNewActivity}>New activity</button> {/*Hämtar ny aktivitet från redan bestämt typ*/}
         </div>

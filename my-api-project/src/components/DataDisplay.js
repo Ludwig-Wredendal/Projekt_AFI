@@ -44,6 +44,9 @@ const DataDisplay = ({ activityType, fetchActivityTrigger }) => {
     <div>
       <h2>The perfect activity for you today would be:</h2>
       <h1>{data.activity}</h1>
+      <p>Type: {activityType}</p>
+      <p>Participants: {data.participants}</p>
+      <p>Link: {data.link}</p>
       <h3>Good luck!</h3>
     </div>
   );

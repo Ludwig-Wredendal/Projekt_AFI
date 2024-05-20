@@ -44,7 +44,7 @@ const WeatherDisplay = ({ setTemperature }) => {
     return <div>No weather data available</div>;
   }
 
-  const maxTemperature = Math.max(...weatherData.hourly.temperature_2m);
+  //const maxTemperature = Math.max(...weatherData.hourly.temperature_2m);
 
   return (
     <div> 
