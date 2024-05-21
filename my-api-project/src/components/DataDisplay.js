@@ -1,6 +1,9 @@
 // src/DataDisplay.js
 import React, { useEffect, useState } from 'react';
 
+import WeatherDisplay, {highestTemp} from './WeatherDisplay';
+
+
 const DataDisplay = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,6 +25,7 @@ const DataDisplay = () => {
 
 
   useEffect(() => {
+    if(highestTemp)
     fetch('http://www.boredapi.com/api/activity?type=recreational')
       .then(response => {
         if (!response.ok) {
