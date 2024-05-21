@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 
 //test test
-
+//test test av desktop app. 
 const DataDisplay = ({ activityType, fetchActivityTrigger }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
