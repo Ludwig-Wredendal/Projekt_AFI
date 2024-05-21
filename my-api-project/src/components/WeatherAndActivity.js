@@ -6,7 +6,6 @@ const WeatherAndActivity = () => {
   const [temperature, setTemperature] = useState(null);
   const [activityType, setActivityType] = useState('');
   const [fetchActivityTrigger, setFetchActivityTrigger] = useState(false);
-  const [participants, setParticipants] = useState('');
 
 
   const determineActivityType = (temp) => {
@@ -25,12 +24,6 @@ const WeatherAndActivity = () => {
     const activityType = activities[Math.floor(Math.random() * activities.length)];
     return activityType;
   };
-
-  const determineNrOfParticipants = (event) => {
-    const value = event.target.value;
-    setParticipants(value);
-  };
-  
 
   useEffect(() => {
     if (temperature !== null) {
@@ -52,16 +45,6 @@ const WeatherAndActivity = () => {
           <button onClick={fetchNewActivity}>New activity</button> {/*Hämtar ny aktivitet från redan bestämt typ*/}
         </div>
       )}
-      <div>
-        <label htmlFor="participants">Number of Participants:</label>
-        <input
-          type="number"
-          id="participants"
-          value={participants}
-          onChange={determineNrOfParticipants}
-          min="1"
-        />
-      </div>
     </div>
   );
 };
