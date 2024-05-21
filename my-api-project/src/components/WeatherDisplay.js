@@ -48,7 +48,6 @@ const WeatherDisplay = ({ setTemperature }) => {
 
   return (
     <div> 
-      <h2>Weather Data</h2>
       {/*<ul>
         {weatherData.hourly.temperature_2m.map((temp, index) => (
           <li key={index}>Hour {index}: {temp}°C</li>

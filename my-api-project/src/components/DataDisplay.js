@@ -10,6 +10,7 @@ const DataDisplay = ({ activityType, fetchActivityTrigger }) => {
 
   const fetchActivity = () => {
     setLoading(true);
+
     fetch(`http://www.boredapi.com/api/activity?type=${activityType}`)
       .then(response => {
         if (!response.ok) {
@@ -46,11 +47,15 @@ const DataDisplay = ({ activityType, fetchActivityTrigger }) => {
   return (
     <div>
       <h2>The perfect activity for you today would be:</h2>
-      <h1>{data.activity}</h1>
-      <p>Type: {activityType}</p>
-      <p>Participants: {data.participants}</p>
-      <p>Link: {data.link}</p>
+      <h1 className="result">{data.activity}</h1>
+      <p>Type: {activityType}, Participants: {data.participants}</p>
+      {data.link && <p>Link: <a href={data.link}>{data.link}</a></p>}
       <h3>Good luck!</h3>
+
+      <button>Two person activity</button>
+      <button>Three person activity</button>
+      <button>Four person activity</button>
+
     </div>
   );
 };
