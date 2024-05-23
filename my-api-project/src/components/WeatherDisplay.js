@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+//WeatherDisplay har som ansvar att hämta och ta fram högsta tempen för dagen.
 
 const WeatherDisplay = ({ setTemperature }) => {
   const [weatherData, setWeatherData] = useState(null);
