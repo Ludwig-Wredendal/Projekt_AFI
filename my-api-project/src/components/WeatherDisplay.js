@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// flytta över ansvaret att beräkna max temperaturen till WeatherAndAActivity
+
 const WeatherDisplay = ({ setTemperature }) => {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -48,7 +50,6 @@ const WeatherDisplay = ({ setTemperature }) => {
 
   return (
     <div> 
-      <h2>Weather Data</h2>
       {/*<ul>
         {weatherData.hourly.temperature_2m.map((temp, index) => (
           <li key={index}>Hour {index}: {temp}°C</li>

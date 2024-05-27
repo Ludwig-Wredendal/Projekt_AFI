@@ -83,7 +83,7 @@ const ParticipantDisplay = ({ participantNumber, fetchActivityTrigger }) => {
   return (
     <div>
       <p>The perfect activity for you today would be:</p>
-      <h3>{data.activity}</h3>
+      {/*<h3>{data.activity}</h3>*/}
       <p>Participants: {data.participants}</p>
       <button onClick={fetchParticipants2}>Participants 2</button> {/*Hämtar ny aktivitet från redan bestämt typ*/}
       <button onClick={fetchParticipants3}>Participants 3</button> {/*Hämtar ny aktivitet från redan bestämt typ*/}
