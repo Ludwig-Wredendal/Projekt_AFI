@@ -33,7 +33,8 @@ const DataDisplay = ({ activityType, fetchActivityTrigger }) => {
   }
 
   if (error) {
-    return <div><h2>Go for a swim</h2></div>
+    return <div><h2 className='fakeresult'>Go for a swim</h2>
+                <p>Type: recreational</p></div>
     //return <div>Error: {error.message}</div>;
   }
 
